@@ -345,7 +345,6 @@ export async function initMasterplan({ stage, canvas, hotspotLayer, legend, pane
     onEnter: () => {
       const tl = gsap.timeline({ onComplete: () => (controls.enabled = touchEnabled) });
       tl.to(intro, { rise: 1, duration: 3.2, ease: 'power2.out' }, 0.3);
-      tl.add(() => setMode('real', 2.6), 1.1);
       tl.to(camera.position, { ...overview().pos, duration: 3.4, ease: 'power3.inOut' }, 0);
       tl.to(controls.target, { ...overview().target, duration: 3.4, ease: 'power3.inOut' }, 0);
     },
