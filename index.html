@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monte Garden — Luxury Villas</title>
+    <meta name="description" content="Богдхан уулын Чулуутын аманд байрлах Монголын анхны 200 айлын тансаг зэрэглэлийн хотхон." />
+    <meta name="theme-color" content="#0b1626" />
+    <link rel="icon" href="/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="loader" id="loader">
+      <img src="/assets/logo.png" alt="" class="loader__logo" />
+      <div class="loader__bar"><span id="loaderBar"></span></div>
+    </div>
+
+    <header class="nav">
+      <a href="#top" class="nav__brand">MONTE GARDEN</a>
+      <nav class="nav__links">
+        <a href="#about">Хотхон</a>
+        <a href="#masterplan">Мастер төлөвлөгөө</a>
+        <a href="#lifestyle">Амьдрал</a>
+        <a href="/rooms.html">Өрөөний төлөвлөгөө</a>
+        <a href="#contact">Холбоо барих</a>
+      </nav>
+      <a href="tel:+97672223000" class="nav__cta">7222 3000</a>
+    </header>
+
+    <main>
+      <!-- 1. HERO -->
+      <section class="hero" id="top">
+        <div class="hero__sticky">
+          <canvas class="hero__canvas" id="heroCanvas"></canvas>
+          <div class="hero__vignette"></div>
+          <div class="hero__copy" id="heroCopy">
+            <p class="eyebrow">Богд хан уул · Чулуутын ам</p>
+            <h1 class="hero__title">MONTE GARDEN</h1>
+            <p class="hero__sub">Luxury Villas</p>
+          </div>
+          <div class="hero__copy hero__copy--end" id="heroEnd">
+            <p class="eyebrow eyebrow--gold">Чулуутын ам</p>
+            <p class="hero__line">Хотын ойр. Байгалийн гүнд.</p>
+          </div>
+          <div class="hero__scroll" id="heroScroll">
+            <span>Доош гүйлгэнэ үү</span>
+            <i></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTRO -->
+      <section class="intro" id="about">
+        <div class="intro__inner">
+          <div class="intro__top">
+            <div>
+              <p class="eyebrow eyebrow--gold">Monte Garden</p>
+              <h2 class="intro__quote reveal">
+                Монголын анхны <em>200 айлын</em> тансаг зэрэглэлийн хотхон — Богдхан уулын ойн дунд.
+              </h2>
+              <p class="intro__lead reveal">
+                Хотын төвөөс хол биш, гэвч уул, ой, горхины дунд. Модерн архитектур, Италийн төлөвлөлт, хувь хүний
+                орон зайг хүндэтгэсэн тав тух.
+              </p>
+            </div>
+            <figure class="intro__img reveal">
+              <img src="/assets/villa-dark.jpg" alt="Monte Garden вилла" loading="lazy" />
+              <figcaption>1-р ээлжийн вилла</figcaption>
+            </figure>
+          </div>
+          <div class="stats">
+            <div class="stat reveal">
+              <span class="stat__num" data-count="200">0</span>
+              <span class="stat__label">айл өрх</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat__num" data-count="70000" data-format="space">0</span>
+              <span class="stat__label">м² нийт талбай</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat__num">~<span data-count="3">0</span></span>
+              <span class="stat__label">км Sky Resort хүртэл</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat__num stat__num--text">Italian</span>
+              <span class="stat__label">design</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. MASTERPLAN -->
+      <section class="plan" id="masterplan">
+        <div class="plan__stage" id="planStage">
+          <canvas class="plan__canvas" id="planCanvas"></canvas>
+          <div class="plan__hotspots" id="planHotspots"></div>
+
+          <div class="plan__head">
+            <p class="eyebrow eyebrow--dark">Интерактив 3D</p>
+            <h2>Мастер төлөвлөгөө</h2>
+            <p class="plan__hint">Чирж эргүүлнэ · цэг дээр дарж танилцана уу</p>
+          </div>
+
+          <ul class="plan__legend" id="planLegend"></ul>
+
+          <aside class="plan__panel" id="planPanel" aria-live="polite">
+            <button class="plan__close" id="planClose" aria-label="Хаах">×</button>
+            <img id="panelImg" class="plan__panel-img" alt="" hidden />
+            <p class="plan__panel-index" id="panelIndex"></p>
+            <h3 id="panelTitle"></h3>
+            <p id="panelText"></p>
+            <a id="panelLink" class="plan__panel-link" hidden></a>
+          </aside>
+
+          <div class="plan__mode" role="group" aria-label="Харагдац">
+            <button data-mode="real">Бодит</button>
+            <button data-mode="plan" class="is-active">Төлөвлөгөө</button>
+          </div>
+
+          <div class="plan__tools">
+            <button id="zoomIn" aria-label="Ойртуулах">+</button>
+            <button id="zoomOut" aria-label="Холдуулах">−</button>
+            <button id="planReset" class="plan__reset">Бүх хотхон</button>
+          </div>
+
+          <button class="plan__activate" id="planActivate">Хүрч удирдах</button>
+        </div>
+      </section>
+
+      <!-- LIFESTYLE GALLERY (horizontal scroll) -->
+      <section class="gallery" id="lifestyle">
+        <div class="gallery__pin">
+          <div class="gallery__head">
+            <p class="eyebrow eyebrow--gold">Амьдралын хэв маяг</p>
+            <h2>Private lifestyle</h2>
+          </div>
+          <div class="gallery__track" id="galleryTrack">
+            <figure class="gcard gcard--tall">
+              <img src="/assets/interior-living.jpg" alt="" loading="lazy" />
+              <figcaption><span>01</span>Гоо зүй ба функционал байдлын тэнцвэр</figcaption>
+            </figure>
+            <figure class="gcard gcard--wide">
+              <img src="/assets/render-villas.jpg" alt="" loading="lazy" />
+              <figcaption><span>02</span>Модерн вилла, ойн дунд</figcaption>
+            </figure>
+            <figure class="gcard gcard--wide">
+              <img src="/assets/interior-lounge.jpg" alt="" loading="lazy" />
+              <figcaption><span>03</span>Дулаан, тав тухтай орон зай</figcaption>
+            </figure>
+            <figure class="gcard gcard--wide">
+              <img src="/assets/render-clubhouse.jpg" alt="" loading="lazy" />
+              <figcaption><span>04</span>2 клаб хаус · спа, фитнес, бассейн</figcaption>
+            </figure>
+            <figure class="gcard gcard--wide">
+              <img src="/assets/render-sport.jpg" alt="" loading="lazy" />
+              <figcaption><span>05</span>Теннис, сагс, хөл бөмбөг, зүчээ</figcaption>
+            </figure>
+            <figure class="gcard gcard--wide">
+              <img src="/assets/render-valley.jpg" alt="" loading="lazy" />
+              <figcaption><span>06</span>Чулуутын амны хөндий</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- NATURE -->
+      <section class="nature" id="nature">
+        <div class="nature__bg" data-speed="0.25">
+          <img src="/assets/bogd-mountain-forest.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="nature__inner">
+          <div class="nature__copy">
+            <p class="eyebrow eyebrow--gold">Байгаль</p>
+            <h2 class="reveal">Уул, ой, горхи.<br /><em>Цэвэр агаар, тайван орчин.</em></h2>
+            <p class="reveal">
+              Богд хан уул бол дэлхийн хамгийн эртний тусгай хамгаалалттай газруудын нэг. Нарс, шинэсэн ой, булаг шанд,
+              буга, хэрэм — Monte Garden-ий хөрш.
+            </p>
+            <ul class="nature__facts reveal">
+              <li><strong>~3 км</strong><span>Sky Resort цанын бааз</span></li>
+              <li><strong>Ой</strong><span>хотхоныг тойрсон</span></li>
+              <li><strong>4 улирал</strong><span>цана, явган аялал, дугуй</span></li>
+            </ul>
+          </div>
+          <div class="nature__stack">
+            <img class="nature__a" data-speed="-0.05" src="/assets/bogd-deer.jpg" alt="Богд ууланд буга" loading="lazy" />
+            <img class="nature__b" data-speed="0.07" src="/assets/bogd-spring.jpg" alt="Уулын булаг" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. APARTMENTS TEASER → rooms.html -->
+      <section class="apts" id="apartments">
+        <div class="apts__inner">
+          <div class="apts__media reveal">
+            <img src="/assets/render-apartments.jpg" alt="Monte Garden орон сууц" loading="lazy" />
+          </div>
+          <div class="apts__copy">
+            <p class="eyebrow eyebrow--gold">Орон сууц</p>
+            <h2 class="reveal">14 төрлийн төлөвлөлт.<br /><em>Өөрийн орон зайгаа сонгоорой.</em></h2>
+            <ul class="apts__facts reveal">
+              <li><strong>2–5</strong><span>өрөө</span></li>
+              <li><strong>52–181</strong><span>м²</span></li>
+              <li><strong>9</strong><span>давхар</span></li>
+            </ul>
+            <a href="/rooms.html" class="apts__cta">Өрөөний төлөвлөгөө үзэх →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / FOOTER -->
+      <footer class="footer" id="contact">
+        <div class="footer__cta">
+          <p class="eyebrow eyebrow--gold">Book a private viewing</p>
+          <h2>Хувийн үзлэгт <em>урьж байна.</em></h2>
+          <a href="tel:+97672223000" class="footer__big">7222 3000</a>
+        </div>
+        <div class="footer__inner">
+          <img src="/assets/logo.png" alt="Monte Garden" class="footer__logo" />
+          <div class="footer__cols">
+            <div>
+              <p class="eyebrow eyebrow--gold">Борлуулалт</p>
+              <p>Хөгжүүлэгч: Astra Group</p>
+              <a href="tel:+97672223000" class="footer__phone">+976 7222 3000</a>
+              <a href="https://www.facebook.com/monte.garden.villa/" target="_blank" rel="noopener">Facebook</a>
+            </div>
+            <div>
+              <p class="eyebrow eyebrow--gold">Байршил</p>
+              <p>Улаанбаатар, Баянзүрх дүүрэг,<br />Богд хан уулын Чулуутын ам</p>
+            </div>
+          </div>
+          <p class="footer__credits">
+            Мастер төлөвлөгөө © Archetype Group. Рендер © Monte Garden / Astra Group. Байршлын рельеф: AWS Terrain Tiles (Mapzen). Байгалийн зураг: Wikimedia Commons — Orgio89, Shinetungalag (CC BY-SA 4.0).
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Өрөөний төлөвлөгөө — Monte Garden</title>
+    <meta name="description" content="Monte Garden орон сууцны 14 төрлийн өрөөний төлөвлөгөө." />
+    <meta name="theme-color" content="#ece7dd" />
+    <link rel="icon" href="/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="rooms-page">
+    <header class="rp-nav">
+      <a href="/" class="rp-nav__back">← Monte Garden</a>
+      <a href="/" class="rp-nav__brand">MONTE GARDEN</a>
+      <a href="tel:+97672223000" class="rp-nav__cta">7222 3000</a>
+    </header>
+
+    <main class="rooms" id="rooms">
+      <aside class="rooms__side">
+        <p class="eyebrow eyebrow--dark">Орон сууц</p>
+        <h1>Өрөөний төлөвлөгөө</h1>
+        <div class="rooms__filters" id="roomsFilters"></div>
+        <div class="rooms__list" id="roomsList"></div>
+      </aside>
+
+      <div class="rooms__stage" id="roomsStage">
+        <div class="rooms__viewport" id="roomsViewport">
+          <div class="rooms__plan" id="roomsPlan">
+            <img id="roomsImg" alt="Өрөөний төлөвлөгөө" draggable="false" />
+            <div class="rooms__spots" id="roomsSpots"></div>
+          </div>
+        </div>
+        <p class="rooms__hint">Чирж зөөнө · хулганы дугуйгаар ойртуулна · өрөөн дээр дарна уу</p>
+        <div class="rooms__tools">
+          <button data-rooms="out" aria-label="Холдуулах">−</button>
+          <button data-rooms="fit">Бүтнээр</button>
+          <button data-rooms="in" aria-label="Ойртуулах">+</button>
+        </div>
+      </div>
+
+      <aside class="rooms__info">
+        <p class="rooms__type" id="roomsTitle"></p>
+        <p class="rooms__total" id="roomsTotal"></p>
+        <p class="rooms__count" id="roomsCount"></p>
+        <ol class="rooms__legend" id="roomsLegend"></ol>
+        <a class="rooms__cta" href="tel:+97672223000">Үзлэг захиалах · 7222 3000</a>
+        <p class="rooms__note">Зураг, хэмжээ: Monte Garden / Astra Group. Зураг танилцуулгын зориулалттай.</p>
+      </aside>
+    </main>
+
+    <script type="module" src="/src/rooms-page.js"></script>
+  </body>
+</html>
